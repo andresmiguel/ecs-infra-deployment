@@ -1,0 +1,5 @@
+min_required_version: v1.28.1
+minimum_severity: MEDIUM
+exclude:
+#  - aws-s3-encryption-customer-key
+#  - aws-s3-enable-bucket-logging

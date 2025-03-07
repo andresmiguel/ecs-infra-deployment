@@ -1,0 +1,7 @@
+### Intellij ###
+.idea/
+
+### Terraform ###
+.terraform
+terraform.tfstate.backup
+.terraform.tfstate.lock.info
