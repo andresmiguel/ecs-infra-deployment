@@ -73,8 +73,8 @@ variable "task_count" {
   default     = 1
 }
 
-variable "alb_https_listener_arn" {
-  description = "The ARN of the HTTPS listener"
+variable "alb_http_listener_arn" {
+  description = "The ARN of the HTTP/HTTPS listener"
   type        = string
 }
 
@@ -125,9 +125,14 @@ variable "enable_autoscaling" {
 
 variable "environment_variables" {
   description = "List of environment variables for the main container"
-  type        = list(object({
+  type = list(object({
     name  = string
     value = string
   }))
   default = []
+}
+
+variable "ecs_default_image" {
+  description = "The default image to use for the ECS task when it is first created"
+  type        = string
 }

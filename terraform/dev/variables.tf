@@ -20,3 +20,20 @@ variable "enable_lb" {
   description = "Enable Load Balancer"
   type        = bool
 }
+
+variable "domain" {
+  description = "The domain the ECS services will use"
+  type        = string
+}
+
+variable "cert_arn" {
+  default     = ""
+  description = "The ARN of the ACM certificate"
+  type        = string
+}
+
+variable "enable_app_a" {
+  default     = false
+  description = "Enable App A"
+  type        = bool
+}

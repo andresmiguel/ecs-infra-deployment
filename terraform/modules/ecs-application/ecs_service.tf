@@ -11,11 +11,11 @@ resource "aws_ecs_service" "api_service" {
   wait_for_steady_state         = var.wait_steady_state
 
   dynamic "load_balancer" {
-    for_each = var.alb_arn != "" ? [aws_lb_target_group.app_lb_tg] : []
+    for_each = var.alb_arn != "" ? [aws_alb_target_group.app_lb_tg] : []
 
     content {
       container_name   = "main"
-      container_port   = 5000
+      container_port   = 8080
       target_group_arn = load_balancer.value.arn
     }
   }

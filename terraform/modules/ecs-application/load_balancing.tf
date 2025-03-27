@@ -1,4 +1,4 @@
-resource "aws_lb_target_group" "app_lb_tg" {
+resource "aws_alb_target_group" "app_lb_tg" {
   name = substr("${var.env}-ecs-${var.app_name}-tg", 0, 32)
 
   port              = 80
@@ -9,13 +9,13 @@ resource "aws_lb_target_group" "app_lb_tg" {
   proxy_protocol_v2 = false
 }
 
-resource "aws_lb_listener_rule" "app_rule" {
-  listener_arn = var.alb_https_listener_arn
+resource "aws_alb_listener_rule" "app_rule" {
+  listener_arn = var.alb_http_listener_arn
   priority     = var.alb_rule_priority
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.app_lb_tg.arn
+    target_group_arn = aws_alb_target_group.app_lb_tg.arn
   }
 
   condition {

@@ -1,5 +1,4 @@
 locals {
-  default_image            = "419466290453.dkr.ecr.us-east-1.amazonaws.com/${var.env}-ecs-service-init-setup:latest"
   main_container_name      = "main"
   main_container_image     = data.external.main_container_image.result.container_image
   main_container_port_name = "${local.main_container_name}-${var.port}-tcp"

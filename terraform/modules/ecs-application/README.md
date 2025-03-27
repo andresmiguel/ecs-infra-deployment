@@ -66,7 +66,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_additional_ecs_service_sg_ids"></a> [additional\_ecs\_service\_sg\_ids](#input\_additional\_ecs\_service\_sg\_ids) | Additional security group IDs to attach to the ECS service | `list(string)` | `[]` | no |
 | <a name="input_alb_arn"></a> [alb\_arn](#input\_alb\_arn) | The ARN of the load balancer | `string` | n/a | yes |
-| <a name="input_alb_https_listener_arn"></a> [alb\_https\_listener\_arn](#input\_alb\_https\_listener\_arn) | The ARN of the HTTPS listener | `string` | n/a | yes |
+| <a name="input_alb_http_listener_arn"></a> [alb\_http\_listener\_arn](#input\_alb\_http\_listener\_arn) | The ARN of the HTTP/HTTPS listener | `string` | n/a | yes |
 | <a name="input_alb_rule_priority"></a> [alb\_rule\_priority](#input\_alb\_rule\_priority) | The priority of the ALB rule | `number` | n/a | yes |
 | <a name="input_alb_security_group_id"></a> [alb\_security\_group\_id](#input\_alb\_security\_group\_id) | The security group ID for the ALB | `string` | n/a | yes |
 | <a name="input_app_name"></a> [app\_name](#input\_app\_name) | The application name | `string` | n/a | yes |
@@ -74,6 +74,7 @@ No modules.
 | <a name="input_domain"></a> [domain](#input\_domain) | The domain the service will use | `string` | n/a | yes |
 | <a name="input_ecs_cluster_id"></a> [ecs\_cluster\_id](#input\_ecs\_cluster\_id) | The ECS cluster ID | `string` | n/a | yes |
 | <a name="input_ecs_cluster_name"></a> [ecs\_cluster\_name](#input\_ecs\_cluster\_name) | The ECS cluster name | `string` | n/a | yes |
+| <a name="input_ecs_default_image"></a> [ecs\_default\_image](#input\_ecs\_default\_image) | The default image to use for the ECS task when it is first created | `string` | n/a | yes |
 | <a name="input_enable_autoscaling"></a> [enable\_autoscaling](#input\_enable\_autoscaling) | Enable Auto Scaling for the ECS Service | `bool` | `false` | no |
 | <a name="input_enable_service_connect"></a> [enable\_service\_connect](#input\_enable\_service\_connect) | Enable service connect as client only | `bool` | `false` | no |
 | <a name="input_env"></a> [env](#input\_env) | The environment | `string` | `"dev"` | no |

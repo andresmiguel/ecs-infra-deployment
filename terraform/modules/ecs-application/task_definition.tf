@@ -9,7 +9,7 @@ resource "aws_ecs_task_definition" "api_task" {
   container_definitions = jsonencode([
     {
       name      = local.main_container_name
-      image     = local.main_container_image != "" ? local.main_container_image : local.default_image
+      image     = local.main_container_image != "" ? local.main_container_image : var.ecs_default_image
       essential = true
 
       portMappings = [
@@ -35,7 +35,7 @@ resource "aws_ecs_task_definition" "api_task" {
         secretOptions = []
       }
 
-      environment = var.environment_variables
+      environment = concat(var.environment_variables, [{ name = "PORT", value = tostring(var.port) }])
 
       environmentFiles = []
       mountPoints = []
