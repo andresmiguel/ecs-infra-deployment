@@ -136,3 +136,9 @@ variable "ecs_default_image" {
   description = "The default image to use for the ECS task when it is first created"
   type        = string
 }
+
+variable "create_dns_record" {
+  description = "Create a DNS record for the service"
+  type        = bool
+  default     = false
+}

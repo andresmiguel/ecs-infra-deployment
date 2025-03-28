@@ -3,7 +3,9 @@ locals {
   main_container_image     = data.external.main_container_image.result.container_image
   main_container_port_name = "${local.main_container_name}-${var.port}-tcp"
   internal_discovery_name  = "${var.app_name}-internal"
-  internal_dns_name        = "${var.app_name}.internal"
+  internal_dns_name = "${var.app_name}.internal"
+  // the regex is to remove the leading dot from the domain
+  hostname                 = "${var.env}-${var.app_name}.${replace(var.domain, "/^\\./", "")}"
 
   capacity_provider_strategy = var.env == "dev" ? [
     {

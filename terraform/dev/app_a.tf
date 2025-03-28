@@ -24,6 +24,7 @@ module "app_a" {
 
   enable_autoscaling = false
   domain             = var.domain
+  create_dns_record  = true
   ecs_default_image  = local.ecs_default_image
 }
 

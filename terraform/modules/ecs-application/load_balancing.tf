@@ -20,8 +20,7 @@ resource "aws_alb_listener_rule" "app_rule" {
 
   condition {
     host_header {
-      // the regex is to remove the leading dot from the domain
-      values = ["${var.env}-${var.app_name}.${replace(var.domain, "/^\\./", "")}"]
+      values = [local.hostname]
     }
   }
 
