@@ -70,3 +70,12 @@ resource "aws_iam_role_policies_exclusive" "app_a_task_role" {
   role_name = aws_iam_role.app_a_task_role.name
   policy_names = [aws_iam_role_policy.app_a_task_role_inline_policy.name]
 }
+
+resource "aws_ecr_repository" "ecs_service_init_setup" {
+  name                 = "${local.env}-app-a"
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = false
+  }
+}
