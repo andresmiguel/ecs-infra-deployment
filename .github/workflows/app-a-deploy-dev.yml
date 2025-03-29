@@ -1,0 +1,22 @@
+name: App A ECS Deploy - DEV
+on:
+  push:
+    branches: [ 'main' ]
+    paths:
+      - 'src/app-a/**'
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/ecs-deploy-template.yml
+    with:
+      DOCKERFILE_LOCATION: src/app-a/deployment/Dockerfile
+      AWS_ECR_REPOSITORY: dev-app-a
+      AWS_ECS_CLUSTER_NAME: ecs-deployment
+      AWS_ECS_SERVICE_NAME: app-a
+      AWS_ECS_TASK_DEFINITION_NAME: app-a
+      AWS_ECS_CONTAINER_NAME: main
