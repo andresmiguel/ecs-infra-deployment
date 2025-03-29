@@ -21,6 +21,9 @@ on:
       AWS_ECS_CONTAINER_NAME:
         required: true
         type: string
+    secrets:
+      AWS_ROLE:
+        required: true
 
 jobs:
   build:
@@ -31,6 +34,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Debug AWS_ROLE
+        run: |
+          echo "Role ARN is: ${{ secrets.AWS_ROLE }}"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4

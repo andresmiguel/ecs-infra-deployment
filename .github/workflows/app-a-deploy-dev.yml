@@ -20,3 +20,5 @@ jobs:
       AWS_ECS_SERVICE_NAME: app-a
       AWS_ECS_TASK_DEFINITION_NAME: app-a
       AWS_ECS_CONTAINER_NAME: main
+    secrets:
+      AWS_ROLE: ${{ secrets.AWS_ROLE }}
