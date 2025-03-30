@@ -37,3 +37,9 @@ variable "enable_app_a" {
   description = "Enable App A"
   type        = bool
 }
+
+variable "enable_app_b" {
+  default     = false
+  description = "Enable App B"
+  type        = bool
+}
