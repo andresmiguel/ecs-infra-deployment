@@ -5,13 +5,13 @@ FROM --platform=linux/amd64 public.ecr.aws/docker/library/node:20-alpine
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json
-COPY package*.json ./
+COPY src/app-a/package*.json ./
 
 # Install dependencies
 RUN npm ci
 
 # Copy the rest of the application code
-COPY . .
+COPY src/app-a .
 
 # Expose the port the app runs on
 EXPOSE 8080
