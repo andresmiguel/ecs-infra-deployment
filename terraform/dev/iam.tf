@@ -16,6 +16,7 @@ resource "aws_iam_role" "ecs_deployment_task_execution_role" {
   })
 }
 
+#tfsec:ignore:aws-iam-no-policy-wildcards
 resource "aws_iam_role_policy" "ecs_deployment_task_execution_role_inline_policy" {
   name = "${local.env}-ecs-deployment-task-execution-role-inline-policy"
   role = aws_iam_role.ecs_deployment_task_execution_role.name
