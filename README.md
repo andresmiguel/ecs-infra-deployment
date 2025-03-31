@@ -1,4 +1,4 @@
-# ECS Deployment
+# ECS Deployment Infrastructure
 
 This approach sets up infrastructure for deploying applications to AWS ECS (Elastic Container Service). It uses
 Terraform to manage the infrastructure and GitHub Actions to deploy the applications. The goal is to make it easy to add
