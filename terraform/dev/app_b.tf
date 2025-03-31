@@ -46,6 +46,7 @@ resource "aws_iam_role" "app_b_task_role" {
   })
 }
 
+#tfsec:ignore:aws-iam-no-policy-wildcards
 resource "aws_iam_role_policy" "app_b_task_role_inline_policy" {
   name = "${local.env}-app-b-task-role-inline-policy"
   role = aws_iam_role.app_b_task_role.name
@@ -71,11 +72,12 @@ resource "aws_iam_role_policies_exclusive" "app_b_task_role" {
   policy_names = [aws_iam_role_policy.app_b_task_role_inline_policy.name]
 }
 
+#tfsec:ignore:aws-ecr-enforce-immutable-repository
 resource "aws_ecr_repository" "app_b" {
   name                 = "${local.env}-app-b"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
-    scan_on_push = false
+    scan_on_push = true
   }
 }

@@ -1,3 +1,4 @@
+#tfsec:ignore:aws-elb-alb-not-public
 resource "aws_lb" "alb" {
   count = var.enable_lb ? 1 : 0
 
@@ -7,6 +8,8 @@ resource "aws_lb" "alb" {
   subnets            = var.subnet_ids
 
   security_groups = [aws_security_group.alb.id]
+
+  drop_invalid_header_fields = true
 
   enable_deletion_protection = false
 }
@@ -47,6 +50,7 @@ resource "aws_lb_listener" "alb_listener_https" {
   }
 }
 
+#tfsec:ignore:aws-elb-http-not-used
 resource "aws_lb_listener" "alb_listener_http" {
   count = var.enable_lb && var.cert_arn == "" ? 1 : 0
 

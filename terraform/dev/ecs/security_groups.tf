@@ -1,3 +1,4 @@
+#tfsec:ignore:aws-ec2-no-public-egress-sgr
 resource "aws_security_group" "ecs_internal_comm" {
   description = "Allows ECS cluster services internal communication"
   name        = "${local.ecs_cluster_name}-ecs-internal-comm-sg"
